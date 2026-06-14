@@ -292,6 +292,10 @@ function isNextDay(depDate, arrDate) {
 }
 
 function buildFlightChip(f) {
+  if (!f.type) {
+    const sgn = s => /ho chi minh|tan son nhat|SGN/i.test(s);
+    f = Object.assign({}, f, { type: sgn(f.to) ? 'arrival' : sgn(f.from) ? 'departure' : 'transit' });
+  }
   const icons = { arrival: '↓', departure: '↑', transit: '↔' };
   const icon = icons[f.type] || '→';
   const from = shortCity(f.from);
