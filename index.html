@@ -447,5 +447,50 @@ document.getElementById('expand-all').addEventListener('click', function() {
   this.textContent = expandedAll ? 'Collapse All' : 'Expand All';
 });
 </script>
+<!-- Live Flight Quick Links -->
+<div class="live-bar">
+  <span class="live-dot"></span>
+  <span class="live-label">Live SGN</span>
+  <a href="https://tia.vietnamairport.vn/ArrInt" target="_blank" class="live-link arrival-link">🛬 Arrivals</a>
+  <a href="https://tia.vietnamairport.vn/DepInt" target="_blank" class="live-link departure-link">🛫 Departures</a>
+</div>
+
+<style>
+  .live-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #161b22;
+    border-top: 1px solid #30363d;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 200;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+  }
+  .live-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 6px #3fb950;
+    animation: livepulse 2s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes livepulse {
+    0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+  }
+  .live-label { color: #8b949e; }
+  .live-link {
+    padding: 4px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.15s;
+  }
+  .live-link:hover { opacity: 0.8; }
+  .arrival-link  { background: #0d2818; color: #3fb950; border: 1px solid #1a4426; }
+  .departure-link { background: #2d0f0e; color: #f85149; border: 1px solid #4a1918; }
+  body { padding-bottom: 36px; }
+</style>
 </body>
 </html>
