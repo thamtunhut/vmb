@@ -209,12 +209,57 @@
   .empty-state p { font-size: 13px; color: var(--text-dim); }
 
   @media (max-width: 768px) {
-    .controls { padding: 12px 16px; }
-    .main { padding: 0 16px 40px; }
-    .flight-chip { min-width: 180px; }
-    .chip-time { font-size: 15px; }
-    .chip-city { max-width: 70px; }
+    /* Header */
+    .header { padding: 10px 14px; }
+    .header-inner { gap: 12px; }
+    .header-title h1 { font-size: 15px; }
+    .header-title .subtitle { font-size: 11px; }
+    .header-stats { gap: 14px; }
+    .stat-num { font-size: 18px; }
+    .stat-label { font-size: 10px; }
     .legend { display: none; }
+
+    /* Controls */
+    .controls { padding: 10px 12px; gap: 7px; }
+    .search-wrap { max-width: 100%; min-width: 0; flex: 1 1 100%; }
+    .filter-row { gap: 5px; }
+    .filter-btn { font-size: 11px; padding: 5px 9px; }
+    select { font-size: 11px; padding: 6px 24px 6px 8px; }
+    .expand-toggle { font-size: 11px; padding: 5px 9px; }
+
+    /* Main */
+    .main { padding: 0 10px 40px; }
+
+    /* Country header */
+    .country-header { padding: 10px 12px; }
+    .country-flag { font-size: 18px; }
+    .country-name { font-size: 13px; }
+
+    /* Table: stack name above flights */
+    .pax-table, .pax-table tbody,
+    .pax-table tr, .pax-table td { display: block; width: 100%; }
+    .pax-table thead { display: none; }
+    .pax-name-cell { padding: 10px 12px 4px; min-width: 0; }
+    .pax-name { font-size: 12px; }
+    .pax-ticket { font-size: 10px; }
+
+    /* Flights: horizontal scroll row */
+    .flights-cell {
+      padding: 4px 12px 10px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .flights-cell::-webkit-scrollbar { display: none; }
+    .flights-list { flex-wrap: nowrap; gap: 6px; width: max-content; }
+
+    /* Smaller chips */
+    .flight-chip { min-width: 155px; padding: 5px 8px; }
+    .chip-code { font-size: 11px; }
+    .chip-time { font-size: 14px; }
+    .chip-city { max-width: 60px; font-size: 9px; }
+    .chip-date-badge { font-size: 9px; }
+    .chip-nextday { font-size: 8px; }
   }
 </style>
 </head>
