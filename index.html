@@ -331,7 +331,11 @@ function buildSection(country, passengers) {
     const name = formatName(pax.display_name);
     const ticket = pax.flights.find(f => f.ticket)?.ticket || '';
     const chips = pax.flights.map(buildFlightChip).join('');
-    const flightTypes = [...new Set(pax.flights.map(f => f.type))].join(' ');
+    const flightTypes = [...new Set(pax.flights.map(f => {
+      if (f.type) return f.type;
+      const sgn = s => /ho chi minh|tan son nhat|SGN/i.test(s);
+      return sgn(f.to) ? 'arrival' : sgn(f.from) ? 'departure' : 'transit';
+    }))].join(' ');
     const flightCodes = pax.flights.map(f => f.flight_code).join(' ');
     const flightDates = pax.flights.map(f => f.dep_date).join(' ');
     return `<tr class="pax-row"
